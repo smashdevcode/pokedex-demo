@@ -4,19 +4,15 @@ function PokemonContainer({ pokemon }) {
   console.log("This is inside the PokemonContainer component", pokemon);
 
   function renderPokemonCardFactory() {
-    return pokemon.map((singlePokemon, indexOfSinglePokemon) => {
-      return (
-        <Card
-          key={singlePokemon.name + indexOfSinglePokemon}
-          name={singlePokemon.name}
-          num={singlePokemon.num}
-          img={singlePokemon.img}
-          type={singlePokemon.type}
-          nextEvolution={singlePokemon.next_evolution}
-        />
-      );
-    });
+    return pokemon.map((singlePokemon, indexOfSinglePokemon) => (
+      <Card
+        key={singlePokemon.name + indexOfSinglePokemon}
+        singlePokemon={singlePokemon}
+      />
+    ));
   }
+
+  console.log("Factory Function", renderPokemonCardFactory())
 
   return (
     <div>
