@@ -1,18 +1,17 @@
 function Card(params) {
   // destructured style
   const {name, num, img, type, next_evolution} = params.singlePokemon;
-  console.log("This is in the Card component", {name, num, img, type, next_evolution})
 
   function renderPokeData(dataType, data) {
 
     if (dataType === "type") {
       return data.map(dataPoint => (
-        <li>{dataPoint}</li>
+        <li key={dataPoint}>{dataPoint}</li>
       ));
     } 
     else if (dataType === "evolutions" && data !== undefined) {
       return data.map(dataPoint => (
-        <li>{dataPoint.num} - {dataPoint.name}</li>
+        <li key={dataPoint.num}><a href={"#" + dataPoint.num}>{dataPoint.num} - {dataPoint.name}</a></li>
       ))
       // Basilios' Solution:
       // return (
@@ -29,7 +28,7 @@ function Card(params) {
   }
 
   return (
-    <div className="pokemon-card">
+    <div className="pokemon-card" id={num}>
       <p>{num}</p>
       <h3>{name}</h3>
       <img src={img} alt={"Picture of " + name} />

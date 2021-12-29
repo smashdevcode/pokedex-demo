@@ -1,7 +1,6 @@
 import Card from "./Card";
 
 function PokemonContainer({ pokemon }) {
-  console.log("This is inside the PokemonContainer component", pokemon);
 
   function renderPokemonCardFactory() {
     return pokemon.map((singlePokemon, indexOfSinglePokemon) => (
@@ -11,8 +10,6 @@ function PokemonContainer({ pokemon }) {
       />
     ));
   }
-
-  console.log("Factory Function", renderPokemonCardFactory())
 
   return (
     <div>
