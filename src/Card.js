@@ -3,7 +3,6 @@ function Card(params) {
   const {name, num, img, type, next_evolution} = params.singlePokemon;
 
   function renderPokeData(dataType, data) {
-
     if (dataType === "type") {
       return data.map(dataPoint => (
         <li key={dataPoint}>{dataPoint}</li>
