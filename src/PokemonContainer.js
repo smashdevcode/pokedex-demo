@@ -12,8 +12,7 @@ function PokemonContainer({ pokemon }) {
   }
 
   return (
-    <div>
-      <p>This is the pokemon container component.</p>
+    <div className="pokemon-card-container">
       {renderPokemonCardFactory()}
     </div>
   );
