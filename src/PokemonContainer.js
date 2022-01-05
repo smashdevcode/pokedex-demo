@@ -1,12 +1,14 @@
 import Card from "./Card";
 
-function PokemonContainer({ pokemon }) {
+function PokemonContainer({ pokemon, myTeam, setMyTeam }) {
 
   function renderPokemonCardFactory() {
     return pokemon.map((singlePokemon, indexOfSinglePokemon) => (
       <Card
         key={singlePokemon.name + indexOfSinglePokemon}
         singlePokemon={singlePokemon}
+        myTeam={myTeam}
+        setMyTeam={setMyTeam}
       />
     ));
   }

@@ -26,6 +26,19 @@ function Card(params) {
     }
   }
 
+  function addToTeam(event, pokemonObject) {
+    event.preventDefault();
+    params.setMyTeam([...params.myTeam, pokemonObject]);
+  }
+
+  function removeFromTeam(event, pokemonObject) {
+    event.preventDefault();
+    const filteredTeam = params.myTeam.filter(teamPokemon => {
+      return teamPokemon !== pokemonObject;
+    })
+    params.setMyTeam(filteredTeam);
+  }
+
   return (
     <div className="pokemon-card" id={num}>
       <p>{num}</p>
@@ -39,6 +52,8 @@ function Card(params) {
       <ol>
         {renderPokeData("evolutions", next_evolution)}
       </ol>
+      <br />
+      {params.myTeam.includes(params.singlePokemon) ? <button onClick={(event) => removeFromTeam(event, params.singlePokemon)}>❌</button> : <button onClick={(event) => addToTeam(event, params.singlePokemon)}>❤️</button>}
     </div>
   );
 }

@@ -1,10 +1,13 @@
 import "./styles.css";
 import { useState, useEffect } from "react";
 import PokemonContainer from "./PokemonContainer";
+import Form from "./Form";
+import Team from "./Team";
 
 export default function App() {
 
   const [pokemon, setPokemon] = useState([]);
+  const [myTeam, setMyTeam] = useState([]);
 
   // fetch function, address we fetch to as its argument
   useEffect(() => {
@@ -16,9 +19,15 @@ export default function App() {
   }, [])
 
 
+    // Create a Dream Team
+        // Add Pokemon to the Team
+        // Remove Pokemon from the Team
+
   return (
     <div className="App">
-      <PokemonContainer pokemon={pokemon} />
+      <Form pokemon={pokemon} setPokemon={setPokemon} />
+      <Team myTeam={myTeam} setMyTeam={setMyTeam} />
+      <PokemonContainer pokemon={pokemon} myTeam={myTeam} setMyTeam={setMyTeam} />
     </div>
   );
 }
