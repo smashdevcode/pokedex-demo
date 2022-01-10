@@ -3,9 +3,9 @@ import Card from "./Card";
 function PokemonContainer({ pokemon, myTeam, setMyTeam }) {
 
   function renderPokemonCardFactory() {
-    return pokemon.map((singlePokemon, indexOfSinglePokemon) => (
+    return pokemon.map((singlePokemon) => (
       <Card
-        key={singlePokemon.name + indexOfSinglePokemon}
+        key={singlePokemon.id}
         singlePokemon={singlePokemon}
         myTeam={myTeam}
         setMyTeam={setMyTeam}
@@ -14,9 +14,12 @@ function PokemonContainer({ pokemon, myTeam, setMyTeam }) {
   }
 
   return (
-    <div className="pokemon-card-container">
-      {renderPokemonCardFactory()}
-    </div>
+    <>
+      <p><em>{pokemon.length} pokemon found</em></p>
+      <div className="pokemon-card-container">
+        {renderPokemonCardFactory()}
+      </div>
+    </>
   );
 }
 
